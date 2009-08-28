@@ -119,6 +119,10 @@ namespace esqlite3
         friend struct cursor;    
         void next(bool end = false);
 
+	private:
+		row(row const & r);
+		row & operator=(row r);
+
     protected:
         statement & stmt_;
         int columns_;

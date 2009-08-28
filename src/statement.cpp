@@ -35,6 +35,11 @@
 #include <esqlite3/statement.hpp>
 #include <esqlite3/database_error.hpp>
 
+#if defined(_MSC_VER)
+#	pragma warning(push)
+#	pragma warning(disable:4355)// We know what we're doing 
+#endif
+
 namespace esqlite3
 {
     statement::statement(sqlite3_stmt * stmt)
@@ -126,3 +131,6 @@ namespace esqlite3
     }
 }
 
+#if defined(_MSC_VER)
+#	pragma warning(pop)
+#endif

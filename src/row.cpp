@@ -43,7 +43,7 @@ namespace esqlite3
     , columns_(0)
     {}
 
-    char const * row::get(int idx)
+	char const * row::get(int idx)
     {        
         if(idx < 0 || idx >= columns())
         {

@@ -52,6 +52,10 @@ namespace esqlite3
         friend struct statement;
         void clear();
 
+	private:
+		cursor(cursor const &);
+		cursor & operator=(cursor);
+
     protected:
         statement & stmt_;
         bool end_;
