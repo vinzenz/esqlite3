@@ -35,7 +35,7 @@
 #include <esqlite3/statement.hpp>
 #include <esqlite3/database_error.hpp>
 #include <esqlite3/cursor.hpp>
-#include <iostream>
+
 namespace esqlite3
 {
     cursor::cursor( statement & stmt )
@@ -55,9 +55,7 @@ namespace esqlite3
         {
             return false;
         }
-        int res = sqlite3_step(stmt_.get());
-        std::cout << "step: " << res << std::endl;
-        switch(res)
+        switch(sqlite3_step(stmt_.get()))
         {
         case SQLITE_ROW:
             row().next();
