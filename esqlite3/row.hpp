@@ -45,10 +45,11 @@ namespace esqlite3
     struct row
     {
         row(statement & stmt);
-
+        
         template<typename T>
         T get(int idx, T const t = T())
-        {        
+        {       
+            (void)t; // Unused parameter
             return boost::lexical_cast<T>( get( idx ) );
         }
 
